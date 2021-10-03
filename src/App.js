@@ -45,10 +45,7 @@ function App() {
           {
             todos.map((el, index) => (
               <div key={index} style={{ display: 'flex', justifyContent: 'center' }}>
-                <p
-                  className={el.completed?'active':''}
-                  onClick={() => dispatch(changeTodoCompleted(el.index))}
-                >
+                <p>
                   {el.title}</p>
                 <button
                   style={{ height: '25px', display: 'flex', alignSelf: 'center', marginLeft: '10px' }}
