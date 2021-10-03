@@ -10,9 +10,11 @@ function App() {
   const dispatch = useDispatch()
 
   const { count } = useSelector(store => store.countSlice)
-  const { todos } = useSelector(store => store.todoSlice)
+  const { todos, asyncComments, asyncTodo } = useSelector(store => store.todoSlice)
 
-  console.log(todos);
+  console.log('coments', asyncComments);
+  console.log('todo', asyncTodo);
+
   const [inputValue, setInputValue] = useState('')
 
   const addTodoAndSetInput = () => {
@@ -56,7 +58,7 @@ function App() {
           }
         </div>
       </div>
-
+      <button onClick={() => dispatch({ type: 'LOAD_ASYNK_DATA' })}>Saga click</button>
     </div >
   );
 }

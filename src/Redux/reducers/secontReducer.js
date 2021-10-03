@@ -6,6 +6,8 @@ export const todoSlice = createSlice({
    name: 'todoSlice',
    initialState: {
       todos: [],
+      asyncTodo: [],
+      asyncComments: [],
    },
    reducers: {
       addTodo(state, action) {
@@ -14,10 +16,16 @@ export const todoSlice = createSlice({
       removeTodo(state, action) {
          state.todos = state.todos.filter((el) => el.id !== action.payload)
       },
+      addAsyncTodo(state, action) {
+         state.asyncTodo.push(action.payload)
+      },
+      addAsyncComments(state, action) {
+         state.asyncComments.push(action.payload)
+      },
 
 
    }
 })
-export const { addTodo, removeTodo, changeTodoCompleted } = todoSlice.actions
+export const { addTodo, removeTodo, addAsyncTodo, addAsyncComments } = todoSlice.actions
 export default todoSlice.reducer
 
